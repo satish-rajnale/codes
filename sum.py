@@ -22,7 +22,8 @@ def better(n):
 
 # integersums.py
 def even_better(n):
-    return sum(range(n + 1))
+    # sum is a in-built function
+    return sum(range(n + 1)) 
 
 # integersums.py
 def add_it_up(n):

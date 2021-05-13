@@ -2,6 +2,8 @@ package main
 import "fmt"
 
 const ArraySize = 7
+
+
 // hash function
 func hash(key string) int{
   sum := 0
@@ -10,19 +12,23 @@ func hash(key string) int{
   }
 return sum % ArraySize
 }
+
 // Hashtable structure
 type HashTable struct{ // our hashtable will be an array
   array [ArraySize]* bucket
 }
+
 // bucket structure (linkedlist)
 type bucket struct{
   head * bucketNode
 }
+
 //bucketNode structure
 type bucketNode struct{
   key string 
   next *bucketNode
 }
+
 //for hash table
 //insert method
 //search mehtod
@@ -56,6 +62,7 @@ func (h *HashTable) Search(key string) bool{
    index := hash(key)
   return  h.array[index].searchInBucket(key)
 }
+
 // searchInBucket function
 func (b * bucket) searchInBucket(k string) bool {
    currentNode := b.head
@@ -67,12 +74,14 @@ func (b * bucket) searchInBucket(k string) bool {
   }
  return false
 }
+
 //delete will take a key and delete the item from hash table arr
 func (h *HashTable) Delete(key string) {
    index := hash(key)
    h.array[index].deleteFromBucket(key)
 }
-// deleteFromBucket frunction
+
+// deleteFromBucket function
 func (b*bucket) deleteFromBucket(k string){
  if(b.head.key == k){
    b.head = b.head.next
@@ -104,26 +113,26 @@ return result
 func main() {
   // myHashTable := &HashTable{} checking step
   myHashTable := Init()
- // fmt.Println(myHashTable)
- //  testBucket := &bucket{}
- //  testBucket.insertInBucket("sangha")
+ fmt.Println(myHashTable)
+ testBucket := &bucket{}
+ testBucket.insertInBucket("sangha")
 
- //  fmt.Println(testBucket.searchInBucket("sangha"))
- //  testBucket.deleteFromBucket("sangha")
- //   fmt.Println(testBucket.searchInBucket("sangha"))
+ fmt.Println(testBucket.searchInBucket("sangha"))
+ testBucket.deleteFromBucket("sangha")
+ fmt.Println(testBucket.searchInBucket("sangha"))
 
  list := []string{
-   "ERIC",
-   "ASLIN",
-   "JOSEPH",
-   "MESSAN",
-   "WASER",
-   "WRYRF",
-   "QINGSHIN",
+  "ERIC",
+  "JASH",
+  "JOSEPH",
+  "PRAVIN",
+  "WASER",
+  "MAYUR",
+  "QINGSHIN",
  }
  for _,v := range list{
    myHashTable.Insert(v)
  }
-fmt.Println(myHashTable.Search("JOSEPH"))//true
-fmt.Println(myHashTable.Search("MEGAN"))//false
+ fmt.Println(myHashTable.Search("JOSEPH"))//true
+ fmt.Println(myHashTable.Search("MEGAN"))//false
 }

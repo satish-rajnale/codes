@@ -61,6 +61,33 @@ class Tree {
     tree.add("node1")
     tree.add("node2", "node1")
     tree.add("node3", "node1")
+    tree.add("node4", "node2")
+    tree.add("node5", "node2")
+    tree.add("node6", "node3")
 
     tree.traverseBFS((node) => console.log("current node", node))
 })()
+
+
+// output
+// current node Node {
+//     data: 'node1',
+//     children: [
+//       Node { data: 'node2', children: [Array] },
+//       Node { data: 'node3', children: [Array] } 
+//     ]
+//   }
+//   current node Node {
+//     data: 'node2',
+//     children: [
+//       Node { data: 'node4', children: [] },     
+//       Node { data: 'node5', children: [] }      
+//     ]
+//   }
+//   current node Node {
+//     data: 'node3',
+//     children: [ Node { data: 'node6', children: [] } ]
+//   }
+//   current node Node { data: 'node4', children: [] }
+//   current node Node { data: 'node5', children: [] }
+//   current node Node { data: 'node6', children: [] }

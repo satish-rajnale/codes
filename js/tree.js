@@ -26,7 +26,7 @@ class Tree {
     }
 
     findBFS(data){
-        const queue =[this.root];
+        // const queue =[this.root];
         let _node = null;
 
         this.traverseBFS((node) => {

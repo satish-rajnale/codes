@@ -21,4 +21,21 @@ promise1.then(data1 => {
 
 //you can use Promise,all to acheive concurrency as in one video of Jherr where he used promise pool to achieve concurrency
 
-Promise.all([promise1, promise2, promise3]).then((response) => doSomething(response)).catch((reason) => console.log(reason))
+Promise.all([promise1, promise2, promise3]).then((response) => doSomething(response)).catch((reason) => console.log(reason));
+
+
+function Foo(){
+	this.a = 2;
+};
+
+var obj = {
+	foo: Foo
+};
+
+var myobj = obj;
+myobj.foo();
+console.log(a); // will give an error
+//use arrow fucntion on Foo as
+const Foo =() => {
+	this.a = 2; //now this a is lexically scoped to wherever the function Foo is defined i.e. in this case is global
+}

@@ -16,4 +16,9 @@ promise1.then(data1 => {
 	    doSomething(response1, response2, response3)
 		})
 	})
-})
+});
+
+
+//you can use Promise,all to acheive concurrency as in one video of Jherr where he used promise pool to achieve concurrency
+
+Promise.all([promise1, promise2, promise3]).then((response) => doSomething(response)).catch((reason) => console.log(reason))
